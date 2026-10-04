@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.part2sd'
+    namespace 'com.spacexjr.part2dump'
     compileSdk 34
 
     defaultConfig {
-        applicationId 'com.example.part2sd'
+        applicationId 'com.spacexjr.part2dump'
         minSdk 21
         targetSdk 34
         versionCode 1

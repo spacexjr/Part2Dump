@@ -1,12 +1,14 @@
-package com.example.part2sd
+package com.spacexjr.part2dump
 
 import android.app.Application
 import com.google.android.material.color.DynamicColors
+import com.spacexjr.part2dump.core.P2DLog
 
-class Part2sdApp : Application() {
+class Part2DumpApp : Application() {
     override fun onCreate() {
         super.onCreate()
-        // Enable Material You dynamic colors on supported devices (Android 12+).
+        P2DLog.attach(this)
+        P2DLog.i("Part2Dump iniciado")
         DynamicColors.applyToActivitiesIfAvailable(this)
     }
 }

@@ -1,11 +1,153 @@
 <resources>
     <string name="app_name">Part2Dump</string>
-    <string name="title">Dump de partição para /sdcard</string>
+    <string name="title">Partições do dispositivo</string>
+    <string name="title_subtitle">Toque para marcar • toque e segure para inspecionar</string>
     <string name="dump">Dump selecionado</string>
+    <string name="dump_cancel">Cancelar operação</string>
     <string name="status_idle">Selecione uma partição e toque em Dump.</string>
+
     <string name="menu_refresh">Atualizar</string>
+    <string name="menu_device_info">Informações do aparelho</string>
+    <string name="menu_storage_access">Acesso ao armazenamento</string>
     <string name="menu_about">Sobre</string>
     <string name="about_title">Sobre</string>
-    <string name="about_message">Part2Dump - dump de partições para /sdcard com root.\nCréditos: spacexjr.</string>
+    <string name="about_message">Part2Dump - leitura e backup de partições com root.\n\nA ferramenta apenas lê block devices: não grava, apaga nem formata partições.\n\nCréditos: spacexjr.</string>
     <string name="about_image_desc">Logo Space</string>
+
+    <string name="root_checking">Root: verificando…</string>
+    <string name="root_status_available">✓ Root disponível</string>
+    <string name="root_status_unavailable">✕ Root indisponível</string>
+    <string name="root_status_error">! Erro ao executar comando root</string>
+    <string name="root_binary_line">su: %1$s</string>
+    <string name="paths_unknown">Diretório de partições: desconhecido</string>
+    <string name="paths_line">by-name: %1$s</string>
+    <string name="paths_line_slot">by-name: %1$s • slot %2$s</string>
+    <string name="paths_line_dynamic">by-name: %1$s • slot %2$s • dinâmicas: %3$s</string>
+
+    <string name="slot_current">Atual</string>
+    <string name="slot_a">A</string>
+    <string name="slot_b">B</string>
+    <string name="slot_all">Ambos</string>
+
+    <string name="action_select_all">Todos</string>
+    <string name="action_clear">Limpar</string>
+    <string name="action_boot">Boot</string>
+    <string name="action_avb">AVB</string>
+    <string name="action_dynamic">Dinâmicas</string>
+    <string name="action_recovery">Recovery</string>
+    <string name="action_dump">DUMP</string>
+    <string name="action_sha256">SHA-256</string>
+    <string name="action_ok">OK</string>
+    <string name="action_continue">Continuar mesmo assim</string>
+    <string name="action_open_settings">Abrir configurações</string>
+
+    <string name="label_path">Caminho:\n%1$s</string>
+    <string name="label_device">Block device:\n%1$s</string>
+    <string name="label_size">Tamanho: %1$s</string>
+    <string name="label_slot">Slot: %1$s</string>
+    <string name="label_group">Grupo: %1$s</string>
+    <string name="label_type">Tipo: %1$s</string>
+    <string name="label_readable">Legível: %1$s</string>
+    <string name="label_sha256">SHA-256\n%1$s</string>
+    <string name="detail_divider">──────────────</string>
+    <string name="detail_yes">✓ Sim</string>
+    <string name="detail_no">✕ Não</string>
+        <string name="detail_slot_none">sem slot</string>
+
+    <string name="error_root_denied">Permissão root negada</string>
+    <string name="error_root_unavailable">Root indisponível: nenhum su utilizável encontrado</string>
+    <string name="error_root_permission">Permissão root negada</string>
+    <string name="error_root_timeout">Tempo esgotado aguardando a autorização do root</string>
+    <string name="error_root_failed">Erro ao executar comando root</string>
+    <string name="error_partition_not_found">Partição não encontrada</string>
+    <string name="error_unable_to_read">Não foi possível ler a partição</string>
+    <string name="error_unable_to_create_output">Não foi possível criar o arquivo de saída</string>
+    <string name="error_not_enough_storage">Espaço de armazenamento insuficiente</string>
+    <string name="error_dump_failed">Falha ao fazer dump</string>
+    <string name="error_unknown_layout">Layout de partições desconhecido</string>
+    <string name="error_no_selection">Selecione uma ou mais partições primeiro</string>
+    <string name="error_timeout">Tempo esgotado durante o dump</string>
+    <string name="error_cancelled">Operação cancelada</string>
+    <string name="error_invalid_target">Destino de dump inválido</string>
+    <string name="error_size_mismatch">Tamanho do dump diverge do esperado</string>
+    <string name="error_internal">Erro interno durante a operação</string>
+    <string name="error_technical_detail">Detalhe: %1$s</string>
+
+    <string name="status_loading">Carregando partições…</string>
+    <string name="status_empty">Nenhuma partição encontrada em /dev/block</string>
+    <string name="status_root_missing">Sem root: a listagem funciona, mas o dump exige root.</string>
+
+    <string name="progress_preparing">Preparando backup…</string>
+    <string name="progress_dumping">Dumping %1$s</string>
+    <string name="progress_dumping_of">Dumping %1$d/%2$d: %3$s</string>
+    <string name="progress_bytes">%1$s / %2$s (%3$d%%)</string>
+    <string name="progress_hashing">Calculando SHA-256 de %1$s…</string>
+    <string name="progress_manifest">Gerando manifest.json…</string>
+    <string name="progress_done">✓ Dump concluído</string>
+    <string name="progress_cancelled">Operação cancelada</string>
+    <string name="progress_failed">✕ %1$s</string>
+
+    <string name="confirm_title">Confirmar dump</string>
+    <string name="confirm_required">Necessário: %1$s</string>
+    <string name="confirm_available">Disponível: %1$s</string>
+    <string name="confirm_not_enough">Espaço insuficiente. O dump não será iniciado.</string>
+    
+    <string name="permission_title">Acesso ao armazenamento</string>
+    <string name="permission_message">O root cria os arquivos no cartão de memória, mas o app precisa de acesso ao armazenamento para ler as imagens, calcular o SHA-256 e gravar o manifest.json.\n\nVocê pode continuar mesmo assim: o hash será calculado pelo root.</string>
+
+    <string name="device_info_title">Informações do aparelho</string>
+    <string name="device_header">%1$s • Android %2$s (API %3$d)</string>
+    <string name="device_manufacturer">Fabricante</string>
+    <string name="device_model">Modelo</string>
+    <string name="device_codename">Codename</string>
+    <string name="device_android">Versão do Android</string>
+    <string name="device_sdk">SDK</string>
+    <string name="device_build">Build</string>
+    <string name="device_abi">Arquitetura</string>
+    <string name="device_kernel">Kernel</string>
+    <string name="device_bootloader">Bootloader</string>
+    <string name="device_slot">Slot</string>
+    <string name="device_root">Root</string>
+    <string name="device_su">Binário su</string>
+    <string name="device_dynamic">Dynamic Partitions</string>
+    <string name="device_super">Partição super</string>
+    <string name="device_by_name">Diretório by-name</string>
+    <string name="device_fingerprint">Fingerprint</string>
+    <string name="device_yes">Sim</string>
+    <string name="device_no">Não</string>
+    <string name="device_ab_device">A/B: %1$s (slot atual %2$s)</string>
+
+    <string name="result_title_success">Backup concluído</string>
+    <string name="result_title_failed">Backup interrompido</string>
+    <string name="result_title_cancelled">Backup cancelado</string>
+    <string name="result_folder">Pasta: %1$s\nManifest: %2$s</string>
+    <string name="result_entry_ok">%1$s • %2$s • %3$s</string>
+    <string name="result_entry_failed">%1$s • falhou • %2$s</string>
+    <string name="result_hash_unavailable">SHA-256 indisponível</string>
+    <string name="result_legacy_folder">Imagens antigas em /sdcard/%1$s</string>
+
+    <string name="inspector_running">%1$s • %2$d%%</string>
+    <string name="inspector_done">Concluído • %1$s</string>
+    <string name="inspector_failed">Falhou: %1$s</string>
+    <string name="inspector_hash_missing">Sem arquivo de backup para calcular o hash.</string>
+    <plurals name="status_loaded">
+        <item quantity="one">%1$d partição carregada</item>
+        <item quantity="other">%1$d partições carregadas</item>
+    </plurals>
+    <plurals name="status_selected">
+        <item quantity="one">%1$d selecionada</item>
+        <item quantity="other">%1$d selecionadas</item>
+    </plurals>
+    <plurals name="confirm_selection">
+        <item quantity="one">%1$d partição selecionada.</item>
+        <item quantity="other">%1$d partições selecionadas.</item>
+    </plurals>
+    <plurals name="confirm_unknown_sizes">
+        <item quantity="one">%1$d partição sem tamanho conhecido</item>
+        <item quantity="other">%1$d partições sem tamanho conhecido</item>
+    </plurals>
+    <plurals name="result_summary">
+        <item quantity="one">%1$d de %2$d concluída • %3$s</item>
+        <item quantity="other">%1$d de %2$d concluídas • %3$s</item>
+    </plurals>
 </resources>
